@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/enzy_icon_qEz_icon.ico">
+    </head>
+<title>Eny</title>
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    .w3-padding-32 {padding-bottom: 0px !important}
+
+    .transferwise-container-0 {
+        padding-right: 400px;
+        padding-left: 400px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        color: #3498db"
+    }
+      
+    .transferwise-container-1 {
+    margin-right: -12px;
+    margin-left: -12px;
+    padding: calc(8px * 4);
+    background-color: #fff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px 0 rgba(121,124,126,.3);
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+    font-size: 22px;
+    line-height: 30px;
+    font-family: "Lato", sans-serif;
+    height: 600px;
+    }
+    
+    .transferwise-container-2 {
+    line-height: 24px;
+    color: #2e4369;
+    background-color: #fff;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-family: "Lato", sans-serif;
+    }
+    
+    .transferwise-container-3 {
+    box-sizing: border-box;
+    text-align: left;
+    letter-spacing: .016em;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5d7079;
+    margin-bottom: 0;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    float: left!important;
+    box-sizing: border-box;
+    width: 50%;
+    }
+    
+    .transferwise-container-4 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #5d7079;
+    text-align: left;
+    letter-spacing: .016em;
+    line-height: 24px;
+    margin-bottom: 16px;
+    }
+    
+    .transferwise-container-5 {
+    display: block;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    font-weight: 600;
+    font-size: 16px;
+    box-sizing: border-box;
+    letter-spacing: .016em;
+    text-align: right;
+    font-family: "Lato", sans-serif;
+    color: #5d7079;
+    }
+
+    .transferwise-container-6 {
+    display: block;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    height: 400px;
+    width: 700px;
+    box-sizing: border-box;
+    letter-spacing: .016em;
+    }
+
+    .transferwise-container-7 {
+    line-height: 24px;
+    color: #15b01a;
+    background-color: #fff;
+    }
+
+    .transferwise-container-8 {
+    line-height: 24px;
+    color: #0343df;
+    background-color: #fff;
+    }
+
+    .transferwise-container-9 {
+    line-height: 24px;
+    color: #e50000;
+    background-color: #fff;
+    }
+
+</style>
+</head>
+<body>
+
+
+<!-- Results -->
+<div id="questions" class="w3-row-padding w3-blue w3-padding-64 w3-container" style="background-color: #3498db">
+    <div class="transferwise-container-0">
+        <div class="transferwise-container-1">
+        <div class="transferwise-container-2">
+            {% if prediction[0][1] >= 0.9 %}
+                You are expected to make a transaction!
+            {% else %}
+                You are not expected to make a transaction!
+            {% endif %}
+        </div>
+        <div class="transferwise-container-3">
+            <div class="transferwise-container-4">
+                As of today, 1 {{exchange[0]}} returns → {{close_price}} {{exchange[1]}}
+            </div>
+            <div class="transferwise-container-4">
+                {% if close_price >=  upper_band%}
+                    The {{exchange[0]}} is strong, consider making your transaction now!
+                {% elif lower_band >= close_price%}
+                    The {{exchange[0]}} is weak, consider making your transaction tomorrow.
+                {% else %}
+                    The {{exchange[0]}} is trading within its boundaries.
+                {% endif %}
+            </div>
+            <div class="transferwise-container-6">
+                <img class="transferwise-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
+            </div>
+        </div>
+        <div class="transferwise-container-5">
+            <div class="transferwise-container-7">
+                <rect width="30" height="10" fill="#3498db">Strong {{exchange[0]}}</rect>
+            </div>
+            <div class="transferwise-container-8">
+                <rect width="30" height="10" fill="#3498db">Current Price {{exchange[0]}}</rect>
+            </div>
+            <div class="transferwise-container-9">
+                <rect width="30" height="10" fill="#3498db">Weak {{exchange[0]}}</rect>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- {{prediction[0][1]}}
+
+    {% if answer == True %}
+        For user {{user_id}}, we predict that they should make a transaction
+    {% else %}
+        For user {{user_id}}, we predict that they should not make a transaction
+    {% endif %}
+    <br>
+
+    <a href="/">Go back home</a> -->
+</body>
+</html>

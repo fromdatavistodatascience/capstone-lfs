@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="/static/enzy_icon_qEz_icon.ico">
+  </head>
+<title>Enzy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+.w3-padding-32 {padding-bottom: 0px !important}
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.container-contact100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #e6e6e6;
+  
+}
+
+[ Contact ]*/
+
+.container-contact100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #3498db !important;
+  
+}
+
+.wrap-contact100 {
+  width: 920px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 62px 55px 90px 55px;
+}
+
+
+/*------------------------------------------------------------------
+[  ]*/
+
+.contact100-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact100-form-title {
+  display: block;
+  width: 100%;
+  font-family: Montserrat-Black;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 59px;
+}
+
+
+
+/*------------------------------------------------------------------
+[  ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 13px;
+  padding: 10px 30px 9px 22px;
+  margin-bottom: 20px;
+}
+
+.rs1-wrap-input100 {
+  width: calc((100% - 30px) / 2);
+}
+
+.label-input100 {
+  font-family: Montserrat-SemiBold;
+  font-size: 10px;
+  color: #393939;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Montserrat-SemiBold;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  padding-right: 15px;
+}
+
+
+/*---------------------------------------------*/
+input.input100 {
+  height: 40px;
+}
+
+
+textarea.input100 {
+  min-height: 120px;
+  padding-top: 9px;
+  padding-bottom: 13px;
+}
+
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+/*---------------------------------------------*/
+.container {
+  border-radius: 5px;
+  background-color: #3498db;
+  padding: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/*---------------------------------------------*/
+
+.transferwise-container-0 {
+  padding-right: 400px;
+  padding-left: 400px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: #3498db"
+}
+  
+.transferwise-container-1 {
+  margin-right: -12px;
+  margin-left: -12px;
+  padding: calc(8px * 4);
+  background-color: #fff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px 0 rgba(121,124,126,.3);
+  display: block;
+  font-size: 16px;
+  margin-bottom: 2px;
+  font-size: 22px;
+  line-height: 30px;
+  font-family: "Lato", sans-serif;
+  height: 600px;
+}
+
+.transferwise-container-2 {
+  line-height: 24px;
+  color: #2e4369;
+  background-color: #fff;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+}
+
+.transferwise-container-3 {
+  box-sizing: border-box;
+  text-align: left;
+  letter-spacing: .016em;
+  font-size: 16px;
+  line-height: 24px;
+  color: #5d7079;
+  margin-bottom: 0;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  float: left!important;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.transferwise-container-4 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #5d7079;
+  text-align: left;
+  letter-spacing: .016em;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.transferwise-container-5 {
+  display: block;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  font-weight: 600;
+  font-size: 16px;
+  box-sizing: border-box;
+  letter-spacing: .016em;
+  text-align: right;
+  font-family: "Lato", sans-serif;
+  color: #5d7079;
+}
+
+.transferwise-container-6 {
+  display: block;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  height: 400px;
+  width: 700px;
+  box-sizing: border-box;
+  letter-spacing: .016em;
+}
+
+.transferwise-container-7 {
+  line-height: 24px;
+  color: #15b01a;
+  background-color: #fff;
+}
+
+.transferwise-container-8 {
+  line-height: 24px;
+  color: #0343df;
+  background-color: #fff;
+}
+
+.transferwise-container-9 {
+  line-height: 24px;
+  color: #e50000;
+  background-color: #fff;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+  <header class="w3-container w3-center" style="padding:160px 16px; color: #ffffff; background-color: #3498db">
+    <h1 class="w3-margin w3-jumbo">WELCOME TO ENZY</h1>
+    <p class="w3-xlarge">Enzy helps develop personalised relationships between banks and customers</p>
+    <a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</a>
+    <!-- <button href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</button> -->
+  </header>
+
+  
+  <!-- First Grid -->
+  <div id="about" class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <h1>About Enzy</h1>
+        <h5 class="w3-padding-32">The goal of Enzy is to anticipate whether a customer is going to make an international transaction in a given time period and notify them if the exchange rate drops below the usual levels.</h5>
+        <h5 class="w3-padding-32">This creates a win-win scenario for both the customer and the bank. The former will save money on their transaction and the bank will benefit by having the user make the transaction through their platform.</h5>
+        <a href="#questions" class="w3-button w3-padding-large w3-large w3-margin-top" style="color: #ffffff; background-color: #3498db">Try out Enzy!</a>
+      </div>
+  
+      <div class="w3-third w3-center">
+        <img class="w3-padding-64" src="{{url_for('static', filename='enzy_notification.png')}}" 
+        alt="Image representing a sample Enzy notification." height="450">
+        <!-- <i class="fa fa-anchor w3-padding-64 w3-text-red"></i> -->
+      </div>
+    </div>
+  </div>
+  
+<!-- Results -->
+<div id="questions" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="transferwise-container-0">
+        <div class="transferwise-container-1">
+        <div class="transferwise-container-2">
+
+        </div>
+        <div class="transferwise-container-3">
+            <div class="transferwise-container-4">
+
+            </div>
+            <div class="transferwise-container-4">
+
+            </div>
+            <div class="transferwise-container-6">
+            </div>
+        </div>
+        <div class="transferwise-container-5">
+            <div class="transferwise-container-7">
+
+            </div>
+            <div class="transferwise-container-8">
+
+            </div>
+            <div class="transferwise-container-9">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Questions Page -->
+  <div id="questions" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="container">
+      <div class="w3-content">
+        <div class="w3-third w3-center">
+          <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+        </div>
+    
+        <div class="w3-twothird">
+          <h1>Questions</h1>
+          <form action="/get_results" method="post">
+          <div class="w3-row-padding" style="margin:0 -16px;">
+              <div class="w3-half">
+                <label>Exchange: </label>
+                  <select name="local_currency">
+                    <option value="USD">US Dollar</option>
+                    <option value="EUR">Euros</option>
+                    <option value="GBP">British Pound</option>
+                    <option value="INR">Indian Rupee</option>
+                    <option value="AUD">Australian Dollar</option>
+                    <option value="CND">Canadian Dollar</option>
+                    <option value="SGD">Singapore Dollar</option>
+                    <option value="CHF">Swiss Franc</option>
+                    <option value="MYR">Malaysian Ringgit</option>
+                    <option value="JPY">Japanese Yen</option>
+                    <option value="CNY">Chinese Yuan Renminbi</option>
+                  </select>
+              </div>
+              <div class="w3-half">
+                  <label>To</label>
+                  <select name="desired_currency">
+                      <option value=""disabled="disabled">Popular Currencies-----------</option>
+                      <option value="USD">US Dollar</option>
+                      <option value="EUR">Euros</option>
+                      <option value="GBP">British Pound</option>
+                      <option value="INR">Indian Rupee</option>
+                      <option value="AUD">Australian Dollar</option>
+                      <option value="CND">Canadian Dollar</option>
+                      <option value="SGD">Singapore Dollar</option>
+                      <option value="CHF">Swiss Franc</option>
+                      <option value="MYR">Malaysian Ringgit</option>
+                      <option value="JPY">Japanese Yen</option>
+                      <option value="CNY">Chinese Yuan Renminbi</option>
+                      <option value=""disabled="disabled">Others-----------------------</option>
+                  </select>
+              </div>
+          </div>
+          <br>
+            <div class="w3-row-padding" style="margin:0 -16px;">
+              <div class="w3-half">
+                <label> Transactions made in the last 10 days?:</label>
+                <input class="w3-input w3-border" type="text" name="n_transactions_made" value="0">
+              </div>
+              <div class="w3-half">
+                <label> How many were during the weekend?:</label>
+                <input class="w3-input w3-border" type="text" name="n_transactions_made_during_weekend" value="0">
+              </div>
+            </div>
+          <br>
+          <div class="w3-row-padding" style="margin:0 -16px;">
+            <div class="w3-half">
+              <label> Transactions received in the last 10 days:</label>
+              <input class="w3-input w3-border" type="text" name="n_transactions_rec" value="0">
+            </div>
+            <div class="w3-half">
+              <label> How many were sent by different people?:</label>
+              <input class="w3-input w3-border" type="text" name="transactions_rec_from_diff_users" value="0">
+            </div>
+          </div>
+          <br>
+          <div class="w3-row-padding" style="margin:0 -16px;">
+            <div class="w3-half">
+              <label> Longest time between two transactions?:</label>
+              <input class="w3-input w3-border" type="text" name="max_time_between_transactions" placeholder="X Days">
+            </div>
+            <div class="w3-half">
+              <label> How frequent were the transactions?:</label>
+              <input class="w3-input w3-border" type="text" name="mean_time_between_transactions" placeholder="X Hours">
+            </div>
+          </div>
+          <br>
+          <div class="w3-row-padding" style="margin:0 -16px;">
+              <div class="w3-half">
+                <label> Date you opened your account (DD-MM-YYYY):</label>
+                <input class="w3-input w3-border" type="text" name="time_since_account_inception" value="04-07-2016">
+              </div>
+              <div class="w3-half">
+                  <label> Type in your favourite note to accompany a transaction</label>
+                  <input class="w3-input w3-border" type="text" name="text_description" value="Rent for july">
+                </div>
+            </div>
+          <div class="w3-half">
+            <input type="submit" class="w3-button w3-padding-large w3-large w3-margin-top" style="color: #ffffff; background-color: #3498db" value="Predict">
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+      <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+    <div class="w3-xlarge w3-padding-32">
+      <a class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/juanjulianherranz/"></a>
+      <a class="fa fa-github w3-hover-opacity" href="https://github.com/fromdatavistodatascience"></a>
+   </div>
+  </footer>
+  
+  <script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>
+  
+  </body>
+  </html>

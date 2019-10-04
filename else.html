@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>First Flask App</title>
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">WELCOME TO ENCY</h1>
+        <p>
+          Ency predicts whether you will make an international transaction in the next three days and recommends the best day to do so.
+          <br>
+          Answer a few simple questions and let Ensy do the rest!
+        </p>
+        <p>
+          <form action="/get_results" method="post">
+            Local Currency: <select name="local_currency">
+                <option value=""disabled="disabled">Popular Currencies-----------</option>
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euros</option>
+                <option value="GBP">British Pound</option>
+                <option value="INR">Indian Rupee</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CND">Canadian Dollar</option>
+                <option value="SGD">Singapore Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="MYR">Malaysian Ringgit</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+                <option value=""disabled="disabled">Others-----------------------</option>
+              </select>
+            Desired Currency: <select name="desired_currency">
+                <option value=""disabled="disabled">Popular Currencies-----------</option>
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euros</option>
+                <option value="GBP">British Pound</option>
+                <option value="INR">Indian Rupee</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CND">Canadian Dollar</option>
+                <option value="SGD">Singapore Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="MYR">Malaysian Ringgit</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+                <option value=""disabled="disabled">Others-----------------------</option>
+              </select>
+            <br>
+            Date you opened your account (DD-MM-YYYY): <input type="text" name="time_since_account_inception">
+            <br>
+            How many transactions did you do last week?: <input type="text" name="n_transactions_made_last_week">
+            <br>
+            How many transactions of those were during the weekend?: <input type="text" name="n_transactions_made_during_weekend">
+            <br>
+            How many transactions did you receive last week?: <input type="text" name="n_transactions_rec_last_week">
+            <br>
+            Of those, how many were by different senders?: <input type="text" name="transactions_rec_from_diff_users">
+            <br>
+            What was the longest time (in days) that went by between your transactions: <input type="text" name="max_time_between_transactions">
+            <br>
+            What was the mean time (in days) that went by between your transactions: <input type="text" name="mean_time_between_transactions">
+            <br>
+            Type your favourite text description: <input type="text" name="text_description">
+            <br>
+            <br>
+            <br>
+            <input type="submit" class="btn btn-primary btn-lg" value="Predict">
+          </form>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+
