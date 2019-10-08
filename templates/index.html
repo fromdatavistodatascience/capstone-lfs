@@ -221,86 +221,114 @@ input[type=submit]:hover {
 
 /*---------------------------------------------*/
 
+.transferwise-container {
+  width: 750px;
+  padding: 75px 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0px auto;
+  display: block;
+}
+
 .transferwise-container-0 {
-  padding-right: 400px;
-  padding-left: 400px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  color: #3498db"
+  width: 800px;
+  max-width: 100%;
+  margin: 0px auto;
+  display: block;
+  box-sizing: border-box;
+  color: #3498db
 }
   
 .transferwise-container-1 {
-  margin-right: -12px;
-  margin-left: -12px;
-  padding: calc(8px * 4);
-  background-color: #fff;
-  border-radius: 3px;
+  margin-right: 20px;
+  width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 10px 30px 0 rgba(121,124,126,.3);
-  display: block;
-  font-size: 16px;
-  margin-bottom: 2px;
-  font-size: 22px;
-  line-height: 30px;
-  font-family: "Lato", sans-serif;
-  height: 600px;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 20px 32px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
+
 .transferwise-container-2 {
-  line-height: 24px;
-  color: #2e4369;
-  background-color: #fff;
-  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 0px !important;
+  letter-spacing: -0.01em;
+  box-sizing: border-box;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  text-align: left;
+  color: #3498db;
+  background-color: #ffff;
   font-weight: 600;
   font-family: "Lato", sans-serif;
 }
 
 .transferwise-container-3 {
+  font-size: 18px;
+  font-weight: 900;
+  direction: ltr;
+  margin-top: 8px;
+  margin-right: 0px;
+  margin-bottom: 30px;
+  margin-left: 0px;
   box-sizing: border-box;
-  text-align: left;
-  letter-spacing: .016em;
-  font-size: 16px;
-  line-height: 24px;
-  color: #5d7079;
-  margin-bottom: 0;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  float: left!important;
-  box-sizing: border-box;
-  width: 50%;
+  display: block;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  text-align: left
 }
 
 .transferwise-container-4 {
-  font-weight: 600;
-  font-size: 16px;
-  color: #5d7079;
+  font-size: 18px;
+  font-weight: 900;
+  direction: ltr;
+  border-top: 1px solid rgb(217, 218, 220);
+  margin-top: 0;
+  margin-bottom: 12px;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  box-sizing: border-box;
+  display: block;
   text-align: left;
-  letter-spacing: .016em;
-  line-height: 24px;
-  margin-bottom: 16px;
 }
 
 .transferwise-container-5 {
-  display: block;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  font-weight: 600;
-  font-size: 16px;
-  box-sizing: border-box;
-  letter-spacing: .016em;
-  text-align: right;
-  font-family: "Lato", sans-serif;
-  color: #5d7079;
-}
-
-.transferwise-container-6 {
-  display: block;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  height: 400px;
-  width: 700px;
-  box-sizing: border-box;
-  letter-spacing: .016em;
+  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transition-duration: 33ms;
+  transition-property: background-color, border-color, color, box-shadow, filter, transform;
+  user-select: none;
+  vertical-align: middle;
+  transform: translate3d(0px, 0px, 0px);
+  background-color: #3498db;
+  color: rgb(255, 255, 255);
+  border-top: 1px solid rgb(217, 218, 220);
+  margin-top: 20px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 500px;
+  padding: 17px 48px;
 }
 
 .transferwise-container-7 {
@@ -319,7 +347,18 @@ input[type=submit]:hover {
   line-height: 24px;
   color: #e50000;
   background-color: #fff;
-  }
+}
+
+.box {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
 </style>
 </head>
@@ -354,33 +393,97 @@ input[type=submit]:hover {
   
 <!-- Results -->
 <div id="questions" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="transferwise-container">
     <div class="transferwise-container-0">
-        <div class="transferwise-container-1">
+      <div class="transferwise-container-1">
         <div class="transferwise-container-2">
-
+          Personalised Prediction
         </div>
         <div class="transferwise-container-3">
-            <div class="transferwise-container-4">
-
+          <div class="w3-half">
+            Amount to be exchanged: 
+            <input class="w3-input w3-border" type="text" name="amount" value="0">
+          </div>
+          <div class="w3-quarter">
+            From:
+            <div class="box">
+              <select name="local_currency" style="margin: 0 !important">
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euros</option>
+                <option value="GBP">British Pound</option>
+                <option value="INR">Indian Rupee</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CND">Canadian Dollar</option>
+                <option value="SGD">Singapore Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="MYR">Malaysian Ringgit</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+              </select>
             </div>
-            <div class="transferwise-container-4">
-
+          </div>
+          <div class="w3-quarter">
+            To:
+            <div class="box">
+              <select name="desired_currency" style="margin: 0 !important">
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euros</option>
+                <option value="GBP">British Pound</option>
+                <option value="INR">Indian Rupee</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CND">Canadian Dollar</option>
+                <option value="SGD">Singapore Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="MYR">Malaysian Ringgit</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+              </select>
             </div>
-            <div class="transferwise-container-6">
-            </div>
+          </div>
         </div>
+      <div class="w3-row-padding" style="margin:0; padding: 0px 0px">
+        <div class="transferwise-container-4">
+          <div class="transferwise-container-3">
+            <div class="w3-half" style="margin-top: 8px">
+              Transactions made in the last 10 days?
+              <input class="w3-input w3-border" type="text" name="n_transactions_made" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How many were during the weekend? 
+              <input class="w3-input w3-border" type="text" name="n_transactions_made_during_weekend" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Transactions received in the last 10 days
+              <input class="w3-input w3-border" type="text" name="n_transactions_rec" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How many were sent by different people? 
+              <input class="w3-input w3-border" type="text" name="transactions_rec_from_diff_users" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Longest time between two transactions?
+              <input class="w3-input w3-border" type="text" name="max_time_between_transactions" placeholder="X Days">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How frequent were the transactions?
+              <input class="w3-input w3-border" type="text" name="mean_time_between_transactions" placeholder="X Hours">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Date you opened your account
+              <input class="w3-input w3-border" type="text" name="time_since_account_inception" placeholder="DD-MM-YYYY">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Favourite transaction description
+              <input class="w3-input w3-border" type="text" name="text_description" value="Money for rent">
+            </div>
+          </div>
+        </div> 
         <div class="transferwise-container-5">
-            <div class="transferwise-container-7">
-
-            </div>
-            <div class="transferwise-container-8">
-
-            </div>
-            <div class="transferwise-container-9">
-
-            </div>
+          Predict!
         </div>
-    </div>
+      </div>
+    </div> 
+  </div>
 </div>
 
 
@@ -485,9 +588,9 @@ input[type=submit]:hover {
     </div>
   </div>
   
-  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  <!-- <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
       <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-  </div>
+  </div> -->
   
   <!-- Footer -->
   <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
