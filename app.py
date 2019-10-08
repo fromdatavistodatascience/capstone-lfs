@@ -2,22 +2,23 @@ from waitress import serve
 from flask import Flask, render_template, request, url_for, make_response
 from time import strftime
 import time
-import gensim
-from gensim.utils import simple_preprocess
-from gensim import corpora
 import datetime
-from nltk.stem.wordnet import WordNetLemmatizer
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 import regex
 import nltk
+from nltk.stem.wordnet import WordNetLemmatizer
 from nltk import FreqDist
 from nltk import word_tokenize
 from nltk.corpus import stopwords, wordnet
+import gensim
+from gensim.utils import simple_preprocess
+from gensim import corpora
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 import string
 import numpy as np
 import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
 import json
 import requests
 import matplotlib
@@ -241,12 +242,14 @@ def get_exchange_rate_graph():
 def get_results():
     """Function that predicts whether a user is going to make a transaction in the next
     two days or not based on their form input."""
-    # # get inputs
+    # get inputs
     user_details, exchange = get_user_details_df()
-    # response_graph = get_exchange_rate_graph()
+    # standardise inputs
+    ss = StandardScaler()
+    user_details_ss = ss.transform(user_details)
     # load the model from disk
     red_ent_forest_model = pickle.load(open('red_ent_forest.sav', 'rb'))
-    prediction = red_ent_forest_model.predict_proba(user_details)
+    prediction = red_ent_forest_model.predict_proba(user_details_ss)
     #prediction = [[0.1,0.9]]
     #exchange = ['USD', 'CHF']
     response_json = get_fx_rates(exchange)
