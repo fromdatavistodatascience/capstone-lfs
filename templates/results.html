@@ -110,6 +110,17 @@
     background-color: #fff;
     }
 
+    .transferwise-container-10 {
+    width: 800px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #5d7079;
+    text-align: left;
+    letter-spacing: .016em;
+    line-height: 24px;
+    margin-bottom: 16px;
+    }
+
 </style>
 </head>
 <body>
@@ -128,9 +139,6 @@
         </div>
         <div class="transferwise-container-3">
             <div class="transferwise-container-4">
-                As of today, 1 {{exchange[0]}} returns → {{close_price}} {{exchange[1]}}
-            </div>
-            <div class="transferwise-container-4">
                 {% if close_price >=  upper_band%}
                     The {{exchange[0]}} is strong, consider making your transaction now!
                 {% elif lower_band >= close_price%}
@@ -139,8 +147,14 @@
                     The {{exchange[0]}} is trading within its boundaries.
                 {% endif %}
             </div>
+            <div class="transferwise-container-4">
+                As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
+            </div>
             <div class="transferwise-container-6">
                 <img class="transferwise-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
+            </div>
+            <div class="transferwise-container-10">
+                Disclaimer: The {{exchange[0]}} is considered strong if it is trading two standard diviations above its 20 day rolling mean. The opposite for weak. 
             </div>
         </div>
         <div class="transferwise-container-5">
