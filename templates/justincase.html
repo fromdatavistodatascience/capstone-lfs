@@ -365,41 +365,40 @@ input[type=submit]:hover {
 <body>
 
 <!-- Header -->
-<header class="w3-container w3-center" style="padding:160px 16px; color: #ffffff; background-color: #3498db">
-  <h1 class="w3-margin w3-jumbo">WELCOME TO ENZY</h1>
-  <p class="w3-xlarge">Enzy helps develop personalised relationships between banks and customers</p>
-  <a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</a>
-  <!-- <button href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</button> -->
-</header>
+  <header class="w3-container w3-center" style="padding:160px 16px; color: #ffffff; background-color: #3498db">
+    <h1 class="w3-margin w3-jumbo">WELCOME TO ENZY</h1>
+    <p class="w3-xlarge">Enzy helps develop personalised relationships between banks and customers</p>
+    <a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</a>
+    <!-- <button href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Curious? Scroll down!</button> -->
+  </header>
 
   
   <!-- First Grid -->
-<div id="about" class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>About Enzy</h1>
-      <h5 class="w3-padding-32">The goal of Enzy is to anticipate whether a customer is going to make an international transaction in a given time period and notify them if the exchange rate drops below the usual levels.</h5>
-      <h5 class="w3-padding-32">This creates a win-win scenario for both the customer and the bank. The former will save money on their transaction and the bank will benefit by having the user make the transaction through their platform.</h5>
-      <a href="#questions" class="w3-button w3-padding-large w3-large w3-margin-top" style="color: #ffffff; background-color: #3498db">Try out Enzy!</a>
-    </div>
-
-    <div class="w3-third w3-center">
-      <img class="w3-padding-64" src="{{url_for('static', filename='enzy_notification.png')}}" 
-      alt="Image representing a sample Enzy notification." height="450">
-      <!-- <i class="fa fa-anchor w3-padding-64 w3-text-red"></i> -->
+  <div id="about" class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <h1>About Enzy</h1>
+        <h5 class="w3-padding-32">The goal of Enzy is to anticipate whether a customer is going to make an international transaction in a given time period and notify them if the exchange rate drops below the usual levels.</h5>
+        <h5 class="w3-padding-32">This creates a win-win scenario for both the customer and the bank. The former will save money on their transaction and the bank will benefit by having the user make the transaction through their platform.</h5>
+        <a href="#questions" class="w3-button w3-padding-large w3-large w3-margin-top" style="color: #ffffff; background-color: #3498db">Try out Enzy!</a>
+      </div>
+  
+      <div class="w3-third w3-center">
+        <img class="w3-padding-64" src="{{url_for('static', filename='enzy_notification.png')}}" 
+        alt="Image representing a sample Enzy notification." height="450">
+        <!-- <i class="fa fa-anchor w3-padding-64 w3-text-red"></i> -->
+      </div>
     </div>
   </div>
-</div>
   
 <!-- Results -->
-<div class="w3-row-padding w3-padding-64 w3-container" style="color: #ffffff; background-color: #3498db">
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div id="questions" class="transferwise-container">
     <div class="transferwise-container-0">
       <div class="transferwise-container-1">
         <div class="transferwise-container-2">
           Personalised Prediction
         </div>
-        <form action="/get_results" method="post">
         <div class="transferwise-container-3">
           <div class="w3-half">
             Amount to be exchanged
@@ -441,51 +440,54 @@ input[type=submit]:hover {
               </select>
             </div>
           </div>
-        <div class="w3-row-padding" style="margin:0; padding: 0px 0px">
-          <div class="transferwise-container-4">
-            <div class="transferwise-container-3">
-              <div class="w3-half" style="margin-top: 8px">
-                Transactions made in the last 10 days?
-                <input class="w3-input w3-border" type="text" name="n_transactions_made" value="0">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                How many were during the weekend? 
-                <input class="w3-input w3-border" type="text" name="n_transactions_made_during_weekend" value="0">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                Transactions received in the last 10 days
-                <input class="w3-input w3-border" type="text" name="n_transactions_rec" value="0">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                How many were sent by different people? 
-                <input class="w3-input w3-border" type="text" name="transactions_rec_from_diff_users" value="0">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                Longest time between two transactions?
-                <input class="w3-input w3-border" type="text" name="max_time_between_transactions" placeholder="X Days">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                How frequent were the transactions?
-                <input class="w3-input w3-border" type="text" name="mean_time_between_transactions" placeholder="X Hours">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                Date you opened your account
-                <input class="w3-input w3-border" type="text" name="time_since_account_inception" placeholder="DD-MM-YYYY">
-              </div>
-              <div class="w3-half" style="margin-top: 8px">
-                Favourite transaction description
-                <input class="w3-input w3-border" type="text" name="text_description" value="Money for rent">
-              </div>
-            </div>
-          </div>
-          <div class="transferwise-container-5">
-            <input type="submit" style="width: 100%; font-size: 18px;;padding: 0px 0px; margin: 0px 0px; background-color:#3498db" value="Predict!">
-          </div> 
         </div>
-      </form>
-    </div>
-  </div> 
+      <div class="w3-row-padding" style="margin:0; padding: 0px 0px">
+        <div class="transferwise-container-4">
+          <div class="transferwise-container-3">
+            <div class="w3-half" style="margin-top: 8px">
+              Transactions made in the last 10 days?
+              <input class="w3-input w3-border" type="text" name="n_transactions_made" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How many were during the weekend? 
+              <input class="w3-input w3-border" type="text" name="n_transactions_made_during_weekend" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Transactions received in the last 10 days
+              <input class="w3-input w3-border" type="text" name="n_transactions_rec" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How many were sent by different people? 
+              <input class="w3-input w3-border" type="text" name="transactions_rec_from_diff_users" value="0">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Longest time between two transactions?
+              <input class="w3-input w3-border" type="text" name="max_time_between_transactions" placeholder="X Days">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              How frequent were the transactions?
+              <input class="w3-input w3-border" type="text" name="mean_time_between_transactions" placeholder="X Hours">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Date you opened your account
+              <input class="w3-input w3-border" type="text" name="time_since_account_inception" placeholder="DD-MM-YYYY">
+            </div>
+            <div class="w3-half" style="margin-top: 8px">
+              Favourite transaction description
+              <input class="w3-input w3-border" type="text" name="text_description" value="Money for rent">
+            </div>
+          <!-- </div> -->
+        </div>
+        <div class="transferwise-container-5">
+          <input type="submit" style="font-size: 14px;;padding: 0px 0px; margin: 0px 0px; background-color:#3498db" value="Predict">
+        </div> 
+        </div>
+      </div>
+    </div> 
+  </div>
 </div>
+
+
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-64 w3-center w3-opacity">  

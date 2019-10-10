@@ -86,9 +86,12 @@ def get_user_details_df():
     "Function that from the request form returns a dataframe with all the inputs for our model."
     data = request.form
     user_details = {}
+    amount = 0
     exchange = []
     for response in data:
-        if response == 'local_currency':
+        if response == 'amount':
+            amount += int(data[f'{response}'])
+        elif response == 'local_currency':
             exchange.append(data[f'{response}'])
             # local_currency.add(data[f'{response}'])
         elif response == 'desired_currency':
@@ -114,7 +117,7 @@ def get_user_details_df():
     )
     # transform the user_details dictionary to a dataframe
     user_details_df = pd.DataFrame([user_details])
-    return user_details_df, exchange
+    return user_details_df, amount, exchange
 
 # def get_exchange_rate_details():
 #     "Function to retrieve the user's exchange rate preferences."
@@ -240,16 +243,17 @@ def get_exchange_rate_graph():
 
 @app.route("/get_results", methods=["POST"])
 def get_results():
-    """Function that predicts whether a user is going to make a transaction in the next
-    two days or not based on their form input."""
+    """Function that predicts whether a user is going to make a transaction in
+    the next two days or not based on their form input."""
     # get inputs
-    user_details, exchange = get_user_details_df()
+    user_details, amount, exchange = get_user_details_df()
     # standardise inputs
-    ss = StandardScaler()
-    user_details_ss = ss.transform(user_details)
+    # ss = StandardScaler()
+    # user_details_ss = ss.transform(user_details)
     # load the model from disk
     red_ent_forest_model = pickle.load(open('red_ent_forest.sav', 'rb'))
-    prediction = red_ent_forest_model.predict_proba(user_details_ss)
+    # prediction = red_ent_forest_model.predict_proba(user_details_ss)
+    prediction = red_ent_forest_model.predict_proba(user_details)
     #prediction = [[0.1,0.9]]
     #exchange = ['USD', 'CHF']
     response_json = get_fx_rates(exchange)
@@ -260,9 +264,9 @@ def get_results():
     upper_band = round(response_bb_df[-1:]['Upper Band'][0], 3)
     lower_band = round(response_bb_df[-1:]['Lower Band'][0], 3)
     return render_template("results.html", prediction=prediction,
-                           exchange=exchange, close_price=close_price,
-                           upper_band=upper_band, lower_band=lower_band,
-                           mean_price=mean_price)
+                           amount=amount, exchange=exchange,
+                           close_price=close_price, upper_band=upper_band,
+                           lower_band=lower_band, mean_price=mean_price)
 
 if __name__ == "__main__":
     serve(app, host='0.0.0.0', port=5000, threads=1)
