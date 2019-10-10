@@ -21,10 +21,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import json
 import requests
+from io import BytesIO
+import imblearn
+from imblearn.pipeline import Pipeline
+from sklearn.externals import joblib
+from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.use("agg")
-from matplotlib import pyplot as plt
-from io import BytesIO
 
 app = Flask(__name__, static_url_path="/static")
 
@@ -79,6 +82,7 @@ def lemmatize_notes(recomposed_note_stopped):
         for word in nltk.word_tokenize(sentence):
             lem = lemmatizer.lemmatize(word, get_wordnet_pos(word))
             lemmatized_notes.append(lem)
+    print(lemmatized_notes)
     return lemmatized_notes
 
 
@@ -93,10 +97,8 @@ def get_user_details_df():
             amount += int(data[f'{response}'])
         elif response == 'local_currency':
             exchange.append(data[f'{response}'])
-            # local_currency.add(data[f'{response}'])
         elif response == 'desired_currency':
             exchange.append(data[f'{response}'])
-            # desired_currency.add(data[f'{response}'])
         elif response == 'time_since_account_inception':
             user_details[response] = (datetime.datetime.today() - datetime.datetime.strptime(data[f'{response}'], '%d-%m-%Y')).total_seconds()
         elif response == 'text_description':
@@ -118,18 +120,6 @@ def get_user_details_df():
     # transform the user_details dictionary to a dataframe
     user_details_df = pd.DataFrame([user_details])
     return user_details_df, amount, exchange
-
-# def get_exchange_rate_details():
-#     "Function to retrieve the user's exchange rate preferences."
-#     data = request.form
-#     exchange = {}
-#     for response in data:
-#         if response == 'local_currency':
-#             exchange['local_currency'] = data[f'{response}']
-#         elif response == 'desired_currency':
-#             exchange['desired_currency'] = data[f'{response}']
-#         else:
-#             break
 
 
 def get_keys(path):
@@ -247,15 +237,10 @@ def get_results():
     the next two days or not based on their form input."""
     # get inputs
     user_details, amount, exchange = get_user_details_df()
-    # standardise inputs
-    # ss = StandardScaler()
-    # user_details_ss = ss.transform(user_details)
     # load the model from disk
-    red_ent_forest_model = pickle.load(open('red_ent_forest.sav', 'rb'))
+    red_ent_forest_model = joblib.load('red_forest_pipe.joblib')
     # prediction = red_ent_forest_model.predict_proba(user_details_ss)
     prediction = red_ent_forest_model.predict_proba(user_details)
-    #prediction = [[0.1,0.9]]
-    #exchange = ['USD', 'CHF']
     response_json = get_fx_rates(exchange)
     response_df = get_adjusted_rate(response_json)
     response_bb_df = get_bollinger_bands(response_df)
@@ -265,7 +250,7 @@ def get_results():
     lower_band = round(response_bb_df[-1:]['Lower Band'][0], 3)
     return render_template("results.html", prediction=prediction,
                            amount=amount, exchange=exchange,
-                           close_price=close_price, upper_band=upper_band,
+                           close_price=round(close_price, 4), upper_band=upper_band,
                            lower_band=lower_band, mean_price=mean_price)
 
 if __name__ == "__main__":
