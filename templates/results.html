@@ -10,7 +10,7 @@
     .fa-anchor,.fa-coffee {font-size:200px}
     .w3-padding-32 {padding-bottom: 0px !important}
 
-    .transferwise-container-0 {
+    .tf-container-0 {
         padding-right: 400px;
         padding-left: 400px;
         padding-top: 100px;
@@ -18,7 +18,7 @@
         color: #3498db"
     }
       
-    .transferwise-container-1 {
+    .tf-container-1 {
     margin-right: -12px;
     margin-left: -12px;
     padding: calc(8px * 4);
@@ -35,7 +35,7 @@
     height: 600px;
     }
     
-    .transferwise-container-2 {
+    .tf-container-2 {
     line-height: 24px;
     color: #2e4369;
     background-color: #fff;
@@ -44,7 +44,7 @@
     font-family: "Lato", sans-serif;
     }
     
-    .transferwise-container-3 {
+    .tf-container-3 {
     box-sizing: border-box;
     text-align: left;
     letter-spacing: .016em;
@@ -59,7 +59,7 @@
     width: 50%;
     }
     
-    .transferwise-container-4 {
+    .tf-container-4 {
     font-weight: 600;
     font-size: 16px;
     color: #5d7079;
@@ -69,7 +69,7 @@
     margin-bottom: 16px;
     }
     
-    .transferwise-container-5 {
+    .tf-container-5 {
     display: block;
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -82,7 +82,7 @@
     color: #5d7079;
     }
 
-    .transferwise-container-6 {
+    .tf-container-6 {
     display: block;
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -92,25 +92,25 @@
     letter-spacing: .016em;
     }
 
-    .transferwise-container-7 {
+    .tf-container-7 {
     line-height: 24px;
     color: #15b01a;
     background-color: #fff;
     }
 
-    .transferwise-container-8 {
+    .tf-container-8 {
     line-height: 24px;
     color: #0343df;
     background-color: #fff;
     }
 
-    .transferwise-container-9 {
+    .tf-container-9 {
     line-height: 24px;
     color: #e50000;
     background-color: #fff;
     }
 
-    .transferwise-container-10 {
+    .tf-container-10 {
     width: 800px;
     font-weight: 600;
     font-size: 12px;
@@ -121,7 +121,7 @@
     margin-bottom: 16px;
     }
 
-    .transferwise-container-11 {
+    .tf-container-11 {
     font-weight: 600;
     font-size: 16px;
     color: #5d7079;
@@ -137,17 +137,17 @@
 
 <!-- Results -->
 <div id="questions" class="w3-row-padding w3-blue w3-padding-64 w3-container" style="background-color: #3498db">
-    <div class="transferwise-container-0">
-        <div class="transferwise-container-1">
-        <div class="transferwise-container-2">
+    <div class="tf-container-0">
+        <div class="tf-container-1">
+        <div class="tf-container-2">
             {% if prediction[0][1] >= 0.9 %}
                 You are expected to make a transaction!
             {% else %}
                 You are not expected to make a transaction!
             {% endif %}
         </div>
-        <div class="transferwise-container-3">
-            <div class="transferwise-container-4">
+        <div class="tf-container-3">
+            <div class="tf-container-4">
                 {% if close_price >=  upper_band%}
                     The {{exchange[0]}} is strong, consider making your transaction now!
                 {% elif lower_band >= close_price%}
@@ -156,39 +156,29 @@
                     The {{exchange[0]}} is trading within its boundaries.
                 {% endif %}
             </div>
-            <div class="transferwise-container-11">
+            <div class="tf-container-11">
                 As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
             </div>
-            <div class="transferwise-container-6">
-                <img class="transferwise-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
+            <div class="tf-container-6">
+                <img class="tf-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
             </div>
-            <div class="transferwise-container-10">
+            <div class="tf-container-10">
                 Disclaimer: The {{exchange[0]}} is considered strong if it is trading two standard diviations above its 20 day rolling mean. The opposite for weak. 
             </div>
         </div>
-        <div class="transferwise-container-5">
-            <div class="transferwise-container-7">
+        <div class="tf-container-5">
+            <div class="tf-container-7">
                 <rect width="30" height="10" fill="#3498db">Strong {{exchange[0]}}</rect>
             </div>
-            <div class="transferwise-container-8">
+            <div class="tf-container-8">
                 <rect width="30" height="10" fill="#3498db">Current Price {{exchange[0]}}</rect>
             </div>
-            <div class="transferwise-container-9">
+            <div class="tf-container-9">
                 <rect width="30" height="10" fill="#3498db">Weak {{exchange[0]}}</rect>
             </div>
         </div>
     </div>
 </div>
 
-    <!-- {{prediction[0][1]}}
-
-    {% if answer == True %}
-        For user {{user_id}}, we predict that they should make a transaction
-    {% else %}
-        For user {{user_id}}, we predict that they should not make a transaction
-    {% endif %}
-    <br>
-
-    <a href="/">Go back home</a> -->
 </body>
 </html>
