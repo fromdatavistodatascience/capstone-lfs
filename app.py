@@ -82,7 +82,6 @@ def lemmatize_notes(recomposed_note_stopped):
         for word in nltk.word_tokenize(sentence):
             lem = lemmatizer.lemmatize(word, get_wordnet_pos(word))
             lemmatized_notes.append(lem)
-    print(lemmatized_notes)
     return lemmatized_notes
 
 
