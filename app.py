@@ -100,6 +100,10 @@ def get_user_details_df():
             exchange.append(data[f'{response}'])
         elif response == 'time_since_account_inception':
             user_details[response] = (datetime.datetime.today() - datetime.datetime.strptime(data[f'{response}'], '%d-%m-%Y')).total_seconds()
+        elif response == 'max_time_between_transactions':
+            user_details[response] = int(data[f'{response}'])*3600  # turning hours to seconds
+        elif response == 'mean_time_between_transactions':
+            user_details[response] = int(data[f'{response}'])*3600  # turning hours to seconds
         elif response == 'text_description':
             # Dealing with the text aspect
             recomposed_note_stopped = get_clean_text_pattern(data[f'{response}'])
@@ -176,7 +180,6 @@ def get_graphical_view(response_df, exchange_currency, desired_currency, today):
     fig = plt.figure(figsize=(10,5), facecolor='w')
     ax = fig.add_subplot(111)
     
-    
     # Get index values for the X axis for exchange rate DataFrame
     x_axis = response_df.index
     
@@ -194,7 +197,6 @@ def get_graphical_view(response_df, exchange_currency, desired_currency, today):
     ax.spines['left'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
- 
     
     # Set Title & Show the Image
     # Compare the value of the exchange rate currencies
