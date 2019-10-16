@@ -3,36 +3,43 @@
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="/static/enzy_icon_qEz_icon.ico">
     </head>
-<title>Eny</title>
+<title>Enzy</title>
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
     .w3-padding-32 {padding-bottom: 0px !important}
 
-    .tf-container-0 {
-        padding-right: 400px;
-        padding-left: 400px;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        color: #3498db"
-    }
-      
-    .tf-container-1 {
-    margin-right: -12px;
-    margin-left: -12px;
-    padding: calc(8px * 4);
-    background-color: #fff;
-    border-radius: 3px;
+    .tf-container {
+    width: 750px;
+    padding: 70px 15px;
+    max-width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 10px 30px 0 rgba(121,124,126,.3);
+    margin: 0px auto;
     display: block;
-    font-size: 16px;
-    margin-bottom: 2px;
-    font-size: 22px;
-    line-height: 30px;
-    font-family: "Lato", sans-serif;
-    height: 600px;
+    }
+
+    .tf-container-0 {
+    width: 800px;
+    max-width: 100%;
+    margin: 0px auto;
+    display: block;
+    box-sizing: border-box;
+    color: #3498db
+    }
+    
+    .tf-container-1 {
+    margin-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 20px 32px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+    padding: 20px;
+    border-radius: 10px;
     }
     
     .tf-container-2 {
@@ -84,12 +91,12 @@
 
     .tf-container-6 {
     display: block;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+    padding-right: 20px !important;
     height: 400px;
     width: 700px;
     box-sizing: border-box;
     letter-spacing: .016em;
+    text-align: left;
     }
 
     .tf-container-7 {
@@ -111,7 +118,7 @@
     }
 
     .tf-container-10 {
-    width: 800px;
+    width: 700px;
     font-weight: 600;
     font-size: 12px;
     color: #5d7079;
@@ -134,47 +141,50 @@
 </head>
 <body>
 
-
 <!-- Results -->
-<div id="questions" class="w3-row-padding w3-blue w3-padding-64 w3-container" style="background-color: #3498db">
-    <div class="tf-container-0">
-        <div class="tf-container-1">
-        <div class="tf-container-2">
-            {% if prediction[0][1] >= 0.9 %}
-                You are expected to make a transaction!
-            {% else %}
-                You are not expected to make a transaction!
-            {% endif %}
-        </div>
-        <div class="tf-container-3">
-            <div class="tf-container-4">
-                {% if close_price >=  upper_band%}
-                    The {{exchange[0]}} is strong, consider making your transaction now!
-                {% elif lower_band >= close_price%}
-                    The {{exchange[0]}} is weak, consider making your transaction tomorrow.
-                {% else %}
-                    The {{exchange[0]}} is trading within its boundaries.
-                {% endif %}
-            </div>
-            <div class="tf-container-11">
-                As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
-            </div>
-            <div class="tf-container-6">
-                <img class="tf-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
-            </div>
-            <div class="tf-container-10">
-                Disclaimer: The {{exchange[0]}} is considered strong if it is trading two standard diviations above its 20 day rolling mean. The opposite for weak. 
-            </div>
-        </div>
-        <div class="tf-container-5">
-            <div class="tf-container-7">
-                <rect width="30" height="10" fill="#3498db">Strong {{exchange[0]}}</rect>
-            </div>
-            <div class="tf-container-8">
-                <rect width="30" height="10" fill="#3498db">Current Price {{exchange[0]}}</rect>
-            </div>
-            <div class="tf-container-9">
-                <rect width="30" height="10" fill="#3498db">Weak {{exchange[0]}}</rect>
+<div class="w3-row-padding w3-padding-64 w3-container" style="color: #ffffff; background-color: #3498db">
+        <div id="questions" class="tf-container">
+          <div class="tf-container-0">
+            <div class="tf-container-1">
+                <div class="tf-container-2">
+                    {% if prediction[0][1] >= 0.9 %}
+                        You are expected to make a transaction!
+                    {% else %}
+                        You are not expected to make a transaction!
+                    {% endif %}
+                </div>
+                <div class="tf-container-3">
+                    <div class="tf-container-4">
+                        {% if close_price >=  upper_band%}
+                            The {{exchange[0]}} is strong, consider making your transaction now!
+                        {% elif lower_band >= close_price%}
+                            The {{exchange[0]}} is weak, consider making your transaction tomorrow.
+                        {% else %}
+                            The {{exchange[0]}} is trading within its boundaries.
+                        {% endif %}
+                    </div>
+                    <div class="tf-container-11">
+                        As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
+                    </div>
+                    <div class="tf-container-6">
+                        <img class="tf-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
+                    </div>
+                    <div class="tf-container-10">
+                        Disclaimer: The {{exchange[0]}} is considered strong vs the {{exchange[1]}} when it is trading two standard diviations above its 20 day rolling mean.
+                                    However, when it is trading two standard diviations below its 20 day rolling mean, it is considered weak.
+                    </div>
+                </div>
+                <div class="tf-container-5">
+                    <div class="tf-container-7">
+                        <rect width="30" height="10" fill="#3498db">Strong {{exchange[0]}}</rect>
+                    </div>
+                    <div class="tf-container-8">
+                        <rect width="30" height="10" fill="#3498db">Current Price {{exchange[0]}}</rect>
+                    </div>
+                    <div class="tf-container-9">
+                        <rect width="30" height="10" fill="#3498db">Weak {{exchange[0]}}</rect>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
