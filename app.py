@@ -136,7 +136,7 @@ def get_fx_rates(exchange):
     url = 'https://www.alphavantage.co/query?'
     function_input = 'FX_DAILY'
     # get api key
-    keys = get_keys("/Users/jjherranzsarrion/.secret/alphaadvantage.json")
+    keys = get_keys(".secret/alphaadvantage.json")
     api_key = keys['api_key']
     # get user details
     # user_details, exchange = get_user_details_df()
