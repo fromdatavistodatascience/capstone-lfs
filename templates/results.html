@@ -164,7 +164,7 @@
                 </div>
                 <div class="tf-container-3">
                     <div class="tf-container-11">
-                        As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
+                        As of today, {{amount}} {{exchange[0]}} returns → {{(amount * close_price)|round(2)}} {{exchange[1]}}
                     </div>
                     <div class="tf-container-4">
                         {% if close_price >=  upper_band%}
