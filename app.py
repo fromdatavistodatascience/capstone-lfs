@@ -249,7 +249,6 @@ def get_results():
     mean_price = response_bb_df[-1:]['30 Day MA'][0]
     upper_band = response_bb_df[-1:]['Upper Band'][0]
     lower_band = response_bb_df[-1:]['Lower Band'][0]
-    print(type(close_price))
     return render_template("results.html", prediction=prediction,
                            amount=amount, exchange=exchange,
                            close_price=close_price, upper_band=upper_band,
