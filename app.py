@@ -245,13 +245,14 @@ def get_results():
     response_json = get_fx_rates(exchange)
     response_df = get_adjusted_rate(response_json)
     response_bb_df = get_bollinger_bands(response_df)
-    close_price = round(response_bb_df[-1:]['Adj Close Price'][0], 3)
-    mean_price = round(response_bb_df[-1:]['30 Day MA'][0], 3)
-    upper_band = round(response_bb_df[-1:]['Upper Band'][0], 3)
-    lower_band = round(response_bb_df[-1:]['Lower Band'][0], 3)
+    close_price = response_bb_df[-1:]['Adj Close Price'][0]
+    mean_price = response_bb_df[-1:]['30 Day MA'][0]
+    upper_band = response_bb_df[-1:]['Upper Band'][0]
+    lower_band = response_bb_df[-1:]['Lower Band'][0]
+    print(type(close_price))
     return render_template("results.html", prediction=prediction,
                            amount=amount, exchange=exchange,
-                           close_price=round(close_price, 4), upper_band=upper_band,
+                           close_price=close_price, upper_band=upper_band,
                            lower_band=lower_band, mean_price=mean_price)
 
 if __name__ == "__main__":
