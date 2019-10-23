@@ -5,10 +5,16 @@
     </head>
 <title>Enzy</title>
 <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
     .w3-padding-32 {padding-bottom: 0px !important}
+    
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif
+    }
 
     .tf-container {
     width: 750px;
@@ -44,7 +50,7 @@
     }
     
     .tf-container-2 {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     color: #2e4369;
     background-color: #fff;
@@ -75,7 +81,6 @@
     text-align: left;
     letter-spacing: .016em;
     line-height: 24px;
-    margin-bottom: 16px;
     }
     
     .tf-container-5 {
@@ -132,20 +137,21 @@
 
     .tf-container-11 {
     font-weight: 600;
-    width: 700px;
     font-size: 16px;
+    width: 700px;
     color: #5d7079;
     text-align: left;
     letter-spacing: .016em;
     line-height: 24px;
+    margin-bottom: 16px;
     }
 
 </style>
 </head>
 <body>
 
-<!-- Results -->
-<div class="w3-row-padding w3-padding-64 w3-container" style="color: #ffffff; background-color: #3498db">
+    <!-- Results -->
+    <div class="w3-row-padding w3-padding-64 w3-container" style="width: 100% !important; color: #ffffff; background-color: #3498db">
         <div id="questions" class="tf-container">
           <div class="tf-container-0">
             <div class="tf-container-1">
@@ -157,6 +163,9 @@
                     {% endif %}
                 </div>
                 <div class="tf-container-3">
+                    <div class="tf-container-11">
+                        As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
+                    </div>
                     <div class="tf-container-4">
                         {% if close_price >=  upper_band%}
                             The {{exchange[0]}} is strong, consider making your transaction now!
@@ -165,9 +174,6 @@
                         {% else %}
                             The {{exchange[0]}} is trading within its boundaries.
                         {% endif %}
-                    </div>
-                    <div class="tf-container-11">
-                        As of today, {{amount}} {{exchange[0]}} returns → {{amount * close_price}} {{exchange[1]}}
                     </div>
                     <div class="tf-container-6">
                         <img class="tf-container-6" src="{{"get_exchange_rate_graph?local_currency="+exchange[0]+"&desired_currency="+exchange[1]}}">
@@ -191,7 +197,6 @@
             </div>
         </div>
     </div>
-</div>
 
 </body>
 </html>
